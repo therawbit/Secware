@@ -14,7 +14,7 @@ class FileWatcher(FileSystemEventHandler):
         logging.info("Event handler created")
 
     def on_created(self, event):
-        if not event.src_path.startswith(tempfile.gettempdir()) and self.is_pe_executable(event.src_path):
+        if not event.src_path.startswith(tempfile.gettempdir()) and pefile.is_pe_executable(event.src_path):
             message = f"New .exe file created: {event.src_path}"
             logging.info(message)
             self.show_notification(event.src_path)
@@ -27,7 +27,7 @@ class FileWatcher(FileSystemEventHandler):
         toaster.show_toast(notification_title, notification_message)
 
     def invoke_external_system_call(self, file_path):
-        objdump_path = r"C:\Users\Sudarshan\Downloads\Secware-main\Secware-main\src\objdump.exe"
+        objdump_path = "objdump.exe"
         arguments = f"-M intel -D {file_path}"
         file_name_without_extension = os.path.splitext(os.path.basename(file_path))[0]
         temp_output_file = os.path.join(tempfile.gettempdir(), f"{file_name_without_extension}.asm")
