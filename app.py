@@ -16,8 +16,6 @@ class MyApp:
         self.config_file = "config.ini"
         self.watch_folder = self.load_config()
 
-        self.style = Style(theme='darkly')  # Use ttkbootstrap theme (changed to 'darkly')
-
         self.watch_folder_label = Label(root, text="Select folder to watch:")
         self.watch_folder_label.pack(pady=10)
 
@@ -27,10 +25,10 @@ class MyApp:
         self.watch_folder_entry = Entry(self.input_frame)
         self.watch_folder_entry.pack(side="left", padx=10)
 
-        self.browse_button = Button(self.input_frame, text="Browse", command=self.browse_folder, style='success.TButton')
+        self.browse_button = Button(self.input_frame, text="Select", command=self.browse_folder, style='primary.TButton')
         self.browse_button.pack(side="left")
 
-        self.start_button = Button(root, text="Start Watching", command=self.start_watching, style='primary.TButton')
+        self.start_button = Button(root, text="Start Watching", command=self.start_watching, style='success.TButton')
         self.start_button.pack(pady=10)
 
         self.stop_button = Button(root, text="Stop Watching", command=self.stop_watching, style='danger.TButton', state=tk.DISABLED)
