@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
+    <width>739</width>
     <height>592</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>750</width>
+    <width>739</width>
     <height>592</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>750</width>
+    <width>739</width>
     <height>592</height>
    </size>
   </property>
@@ -46,7 +46,7 @@
      <widget class="QWidget" name="sidebar" native="true">
       <property name="minimumSize">
        <size>
-        <width>185</width>
+        <width>180</width>
         <height>0</height>
        </size>
       </property>
@@ -110,7 +110,7 @@
             </property>
             <property name="font">
              <font>
-              <family>JetBrainsMono Nerd Font</family>
+              <family>MS Shell Dlg 2</family>
               <pointsize>13</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -126,8 +126,8 @@ margin:auto;
 
 }
 .QPushButton:hover{
-border: 2px solid #38aecc;
-border-radius: 10px;
+max-width:200px;
+color:#38aecc;
 }</string>
             </property>
             <property name="text">
@@ -137,53 +137,16 @@ border-radius: 10px;
              <iconset>
               <normaloff>icons/house-16.png</normaloff>icons/house-16.png</iconset>
             </property>
+            <property name="iconSize">
+             <size>
+              <width>16</width>
+              <height>16</height>
+             </size>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btn_history">
-            <property name="minimumSize">
-             <size>
-              <width>165</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>140</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>JetBrainsMono Nerd Font</family>
-              <pointsize>13</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">.QPushButton{
-color: rgb(255, 255, 255);
-border-radius: 10px;
-text-align:left;
-margin:auto;
-}
-.QPushButton:hover{
-border: 2px solid #38aecc;
-border-radius: 10px;
-}</string>
-            </property>
-            <property name="text">
-             <string>History</string>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>icons/database-16.png</normaloff>icons/database-16.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btn_logs">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -198,7 +161,49 @@ border-radius: 10px;
             </property>
             <property name="font">
              <font>
-              <family>JetBrainsMono Nerd Font</family>
+              <family>MS Shell Dlg 2</family>
+              <pointsize>13</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">.QPushButton{
+color: rgb(255, 255, 255);
+border-radius: 10px;
+text-align:left;
+margin:auto;
+}
+.QPushButton:hover{
+color:#38aecc;
+}</string>
+            </property>
+            <property name="text">
+             <string>History</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>icons/database-16.png</normaloff>icons/database-16.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="minimumSize">
+             <size>
+              <width>160</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>140</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>MS Shell Dlg 2</family>
               <pointsize>13</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -212,8 +217,7 @@ border-radius: 10px;
 margin:auto;
 }
 .QPushButton:hover{
-border: 2px solid #38aecc;
-border-radius: 10px;
+color:#38aecc;
 }</string>
             </property>
             <property name="text">
@@ -226,7 +230,7 @@ border-radius: 10px;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btn_about">
+           <widget class="QPushButton" name="pushButton_4">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -241,7 +245,7 @@ border-radius: 10px;
             </property>
             <property name="font">
              <font>
-              <family>JetBrainsMono Nerd Font</family>
+              <family>MS Shell Dlg 2</family>
               <pointsize>13</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -255,8 +259,8 @@ text-align:left;
 margin:auto;
 }
 .QPushButton:hover{
-border: 2px solid #38aecc;
-border-radius: 10px;
+color:#38aecc;
+
 }</string>
             </property>
             <property name="text">
@@ -345,7 +349,7 @@ border-radius: 10px;
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>30</height>
+              <height>35</height>
              </size>
             </property>
             <property name="font">
@@ -392,7 +396,7 @@ border-radius: 10px;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -439,7 +443,7 @@ border-radius: 10px;
                 </property>
                 <property name="font">
                  <font>
-                  <family>JetBrainsMono Nerd Font Mono</family>
+                  <family>MS Shell Dlg 2</family>
                   <pointsize>28</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
@@ -497,7 +501,7 @@ border-radius: 10px;
                    </property>
                    <property name="font">
                     <font>
-                     <family>JetBrainsMono Nerd Font</family>
+                     <family>MS Shell Dlg 2</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -545,7 +549,7 @@ border-radius: 10px;
                    </property>
                    <property name="font">
                     <font>
-                     <family>JetBrainsMono Nerd Font</family>
+                     <family>MS Shell Dlg 2</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -579,7 +583,7 @@ border-radius: 10px;
                    </property>
                    <property name="font">
                     <font>
-                     <family>JetBrainsMono Nerd Font</family>
+                     <family>MS Shell Dlg 2</family>
                      <pointsize>12</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
@@ -934,88 +938,42 @@ border-radius: 10px;
                </widget>
               </item>
               <item>
-               <widget class="QFrame" name="frame_11">
+               <widget class="QTextEdit" name="textEdit">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777088</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
-                 <string notr="true">background:#fff;
-border-radius:8px;</string>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
+                 <string notr="true">background:grey;</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QFrame" name="frame_12">
+               <widget class="QPushButton" name="pushButton">
                 <property name="maximumSize">
                  <size>
-                  <width>150</width>
-                  <height>40</height>
+                  <width>100</width>
+                  <height>78</height>
                  </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background:#fff000;
 border-radius:4px;</string>
                 </property>
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
+                <property name="text">
+                 <string>Refresh</string>
                 </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>icons/recurring-appointment-16.png</normaloff>icons/recurring-appointment-16.png</iconset>
                 </property>
-                <widget class="QLabel" name="label_10">
-                 <property name="geometry">
-                  <rect>
-                   <x>60</x>
-                   <y>10</y>
-                   <width>60</width>
-                   <height>16</height>
-                  </rect>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>60</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <pointsize>10</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">margin-left:-5px;</string>
-                 </property>
-                 <property name="text">
-                  <string>Refresh</string>
-                 </property>
-                </widget>
-                <widget class="QLabel" name="label_9">
-                 <property name="geometry">
-                  <rect>
-                   <x>40</x>
-                   <y>10</y>
-                   <width>16</width>
-                   <height>16</height>
-                  </rect>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>20</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="pixmap">
-                  <pixmap>icons/recurring-appointment-16.png</pixmap>
-                 </property>
-                </widget>
                </widget>
               </item>
              </layout>
