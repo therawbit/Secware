@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
-from PyQt5 import uic
+from PyQt5 import uic,QtGui
 from file_watcher_service import FileWatcherService
 from PyQt5.QtCore import pyqtSlot
 import logging
@@ -17,6 +17,7 @@ class MyApp(QMainWindow):
         self.btn_about.clicked.connect(self.show_about_page)
         self.btn_file_chooser.clicked.connect(self.choose_folder)
         self.btn_load_log.clicked.connect(self.load_logs)
+        self.logs_view.setReadOnly(True)
         self.file_watcher = None
         self.is_watching = False  # Flag to track the service state
         
@@ -54,7 +55,10 @@ class MyApp(QMainWindow):
         self.edit_watch_folder.setText(self.watch_folder)
 
     def load_logs(self):
+        self.logs_view.setText("")
         log_lines = self.tail(100)
+        for line in log_lines:
+            self.logs_view.append(line.decode())
 
     def tail(self,n):
         with open('service.log', 'rb') as file:
@@ -91,6 +95,8 @@ if __name__ == '__main__':
     logging.basicConfig(filename="service.log", level=logging.INFO, format='%(asctime)s - %(message)s')
     app = QApplication(sys.argv)
     window = MyApp()
+    window.setWindowTitle("Secware")
+    window.setWindowIcon(QtGui.QIcon("icons/favicon.ico"))
     window.show()
     window.stackedWidget.setCurrentIndex(0)
     sys.exit(app.exec_())

@@ -116,6 +116,9 @@
               <bold>true</bold>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
 color: rgb(255, 255, 255
@@ -167,6 +170,9 @@ color:#38aecc;
               <bold>true</bold>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
 color: rgb(255, 255, 255);
@@ -188,7 +194,7 @@ color:#38aecc;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="btn_logs">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -208,6 +214,9 @@ color:#38aecc;
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
@@ -230,7 +239,7 @@ color:#38aecc;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="btn_about">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -250,6 +259,9 @@ color:#38aecc;
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
@@ -938,7 +950,7 @@ border-radius: 10px;
                </widget>
               </item>
               <item>
-               <widget class="QTextEdit" name="textEdit">
+               <widget class="QTextEdit" name="logs_view">
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -946,12 +958,13 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background:grey;</string>
+                 <string notr="true">background-color: rgb(217, 217, 217);
+border-radius: 10px;</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="btn_load_log">
                 <property name="maximumSize">
                  <size>
                   <width>100</width>
