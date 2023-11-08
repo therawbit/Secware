@@ -16,12 +16,12 @@ class FileWatcher(FileSystemEventHandler):
         self.file_queue = deque()
         self.processing = False
         self.toaster = ToastNotifier()
-        logging.info("Event handler created")
 
     def on_created(self, event):
         if not event.src_path.startswith(
             tempfile.gettempdir()
         ) and self.is_pe_executable(event.src_path):
+            logging.info(f"New file: {event.src_path}")
             self.file_queue.append(event.src_path)
             self.process_queue()
 
@@ -40,10 +40,7 @@ class FileWatcher(FileSystemEventHandler):
     def invoke_external_system_call(self, file_path):
         objdump_path = "objdump.exe"
         arguments = f"-M intel -D {file_path}"
-
         assembly_code = subprocess.check_output([objdump_path, *arguments.split()], text=True)
-
-        logging.info(f"Objdump output captured")
         self.extract_features(assembly_code)
 
     def is_pe_executable(self, file_path):

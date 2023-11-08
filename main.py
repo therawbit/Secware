@@ -10,8 +10,10 @@ class MyApp(QMainWindow):
         super().__init__()
         uic.loadUi("main_ui.ui", self)  # Load your UI file
         self.watch_folder = ""
-        self.btn_home.clicked.connect(self.show_page1)
-        self.btn_history.clicked.connect(self.show_page2)
+        self.btn_home.clicked.connect(self.show_home_page)
+        self.btn_history.clicked.connect(self.show_history_page)
+        self.btn_logs.clicked.connect(self.show_logs_page)
+        self.btn_about.clicked.connect(self.show_about_page)
         self.btn_file_chooser.clicked.connect(self.choose_folder)
         self.file_watcher = None
         self.is_watching = False  # Flag to track the service state
@@ -19,6 +21,7 @@ class MyApp(QMainWindow):
         # Connect the Start and Stop buttons
         self.btn_start.clicked.connect(self.start_watching)
         self.btn_stop.clicked.connect(self.stop_watching)
+        
 
     @pyqtSlot()
     def start_watching(self):
@@ -47,14 +50,17 @@ class MyApp(QMainWindow):
     def choose_folder(self):
         self.watch_folder = QFileDialog.getExistingDirectory(self,"Select Folder")
         self.edit_watch_folder.setText(self.watch_folder)
-    def show_page1(self):
+    def show_home_page(self):
         self.stackedWidget.setCurrentIndex(0)
 
-    def show_page2(self):
-        self.stackedWidget.setCurrentIndex(1)
-
-    def show_page3(self):
+    def show_history_page(self):
         self.stackedWidget.setCurrentIndex(2)
+
+    def show_logs_page(self):
+        self.stackedWidget.setCurrentIndex(3)
+
+    def show_about_page(self):
+        self.stackedWidget.setCurrentIndex(1)
 
 if __name__ == '__main__':
     logging.basicConfig(filename="service.log", level=logging.INFO, format='%(asctime)s - %(message)s')
