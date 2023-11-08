@@ -6,19 +6,30 @@ import tempfile
 import pandas as pd
 from watchdog.events import FileSystemEventHandler
 import tempfile
-import pefile
+from collections import deque
+
+
 
 class FileWatcher(FileSystemEventHandler):
     def __init__(self, app):
         self.app = app
+        self.file_queue = deque()
+        self.processing = False
+        self.toaster = ToastNotifier()
         logging.info("Event handler created")
 
     def on_created(self, event):
-        if not event.src_path.startswith(tempfile.gettempdir()) and pefile.is_pe_executable(event.src_path):
-            message = f"New .exe file created: {event.src_path}"
-            logging.info(message)
-            self.show_notification(event.src_path)
-            self.invoke_external_system_call(event.src_path)
+        if not event.src_path.startswith(
+            tempfile.gettempdir()
+        ) and self.is_pe_executable(event.src_path):
+            self.file_queue.append(event.src_path)
+            self.process_queue()
+
+    def process_queue(self):
+        if not self.processing and self.file_queue:
+            self.processing = True
+            file_path = self.file_queue.popleft()
+            self.invoke_external_system_call(file_path)
 
     def show_notification(self, file_path):
         notification_title = "New .exe File Detected"
@@ -29,60 +40,91 @@ class FileWatcher(FileSystemEventHandler):
     def invoke_external_system_call(self, file_path):
         objdump_path = "objdump.exe"
         arguments = f"-M intel -D {file_path}"
-        file_name_without_extension = os.path.splitext(os.path.basename(file_path))[0]
-        temp_output_file = os.path.join(tempfile.gettempdir(), f"{file_name_without_extension}.asm")
+
+        assembly_code = subprocess.check_output([objdump_path, *arguments.split()], text=True)
+
+        logging.info(f"Objdump output captured")
+        self.extract_features(assembly_code)
+
+    def is_pe_executable(self, file_path):
         try:
-            result = subprocess.run([objdump_path, *arguments.split()], capture_output=True, text=True, check=True)
-            if result.returncode == 0:
-                logging.info(f"Objdump output saved to temp file: {temp_output_file}")
-                with open(temp_output_file, "w") as output_file:
-                    output_file.write(result.stdout)
-                self.extract_features(temp_output_file)
-            else:
-                logging.error("Objdump error:\n", result.stderr)
+            with open(file_path, 'rb') as file:
+                data = file.read(2)
+            return data == b'MZ'  # Check for the MZ magic number at the beginning of the file
         except Exception as e:
-            logging.error("An error occurred:", str(e))
+            return False
 
-    def extract_features(self,asm_file_path):
-        section_size = self.extract_section_size(asm_file_path)
 
-        fields = ["jmp", "mov", "retf", "push", "pop", "xor", "retn", "nop", "sub", "inc", "dec", "add", "imul", "xchg", "or", "shr", "cmp", "call", "shl", "ror", "rol", "jnb", "jz", "rtn", "lea", "movzx", "edx", "esi", "eax", "ebx", "ecx", "edi", "ebp", "esp", "eip"]
 
-        # Initialize a dictionary to store field counts
-        data = {field: [] for field in fields}
+    def extract_features(self, assembly_code):
+        fields = [
+            "jmp",
+            "mov",
+            "retf",
+            "push",
+            "pop",
+            "xor",
+            "retn",
+            "nop",
+            "sub",
+            "inc",
+            "dec",
+            "add",
+            "imul",
+            "xchg",
+            "or",
+            "shr",
+            "cmp",
+            "call",
+            "shl",
+            "ror",
+            "rol",
+            "jnb",
+            "jz",
+            "rtn",
+            "lea",
+            "movzx",
+            "edx",
+            "esi",
+            "eax",
+            "ebx",
+            "ecx",
+            "edi",
+            "ebp",
+            "esp",
+            "eip",
+        ]
 
-        # Process the specified file
-        file_name = os.path.basename(asm_file_path)
-        with open(asm_file_path, "r") as asm_file:
-            content = asm_file.read()
-            for field in fields:
-                count = content.count(field)
-                data[field].append(count)
-        data.update(section_size)
-        # Create a DataFrame
-        df = pd.DataFrame(data)
-        df.to_csv("test.csv",index=False)
-
-    def extract_section_size(self,file_path):
-        # Initialize variables to keep track of section names and line counts
-        section_name = None
-        line_count = 0
+        # Initialize a dictionary to store field counts and section line counts
+        data = {field: 0 for field in fields}
         section_counts = {}
+        section_name = None
+        section_line_counts = {}  # Dictionary to store section line counts
 
-        # Open the file for reading
-        with open(file_path, 'r') as file:
-            # Loop through each line in the file
-            for line in file:
-                if line.startswith("Disassembly of section"):
-                    # If a new section is encountered, update the section name
-                    section_name = line.split()[-1].strip(':')
-                    line_count = 0
-                elif section_name is not None:
-                    # If a section name has been identified, increment the line count
-                    line_count += 1
-                    if section_name in section_counts:
-                        section_counts[section_name] += 1
-                    else:
-                        section_counts[section_name] = 1
+        # Split the assembly code into lines
+        lines = assembly_code.splitlines()
 
-        return section_counts
+        # Loop through each line in the assembly code
+        for line in lines:
+            if line.startswith("Disassembly of section"):
+                # If a new section is encountered, update the section name
+                section_name = line.split()[-1].strip(":")
+                section_line_counts[section_name] = 0  # Initialize the section line count
+                if section_name in section_counts:
+                    section_counts[section_name] += 1
+                else:
+                    section_counts[section_name] = 1
+            elif section_name is not None:
+                section_line_counts[section_name] += 1  # Increment the section line count
+                for field in fields:
+                    count = line.count(field)
+                    data[field] += count
+
+        # Add section line counts to the dictionary
+        data.update(section_counts)
+        data.update(section_line_counts)
+
+        # Create a DataFrame from the dictionary
+        df = pd.DataFrame([data])
+
+        df.to_csv("test.csv", index=False)
