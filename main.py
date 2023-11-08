@@ -4,6 +4,7 @@ from PyQt5 import uic
 from file_watcher_service import FileWatcherService
 from PyQt5.QtCore import pyqtSlot
 import logging
+import os
 
 class MyApp(QMainWindow):
     def __init__(self):
@@ -15,6 +16,7 @@ class MyApp(QMainWindow):
         self.btn_logs.clicked.connect(self.show_logs_page)
         self.btn_about.clicked.connect(self.show_about_page)
         self.btn_file_chooser.clicked.connect(self.choose_folder)
+        self.btn_load_log.clicked.connect(self.load_logs)
         self.file_watcher = None
         self.is_watching = False  # Flag to track the service state
         
@@ -50,6 +52,29 @@ class MyApp(QMainWindow):
     def choose_folder(self):
         self.watch_folder = QFileDialog.getExistingDirectory(self,"Select Folder")
         self.edit_watch_folder.setText(self.watch_folder)
+
+    def load_logs(self):
+        log_lines = self.tail(100)
+
+    def tail(self,n):
+        with open('service.log', 'rb') as file:
+            file.seek(0, os.SEEK_END)
+            file_size = file.tell()
+            newline_count = 0
+            buffer_size = 4096  # Adjust this value based on your needs
+
+            while file_size > 0 and newline_count < n:
+                if file_size < buffer_size:
+                    buffer_size = file_size
+                file.seek(-buffer_size, os.SEEK_CUR)
+                buffer = file.read(buffer_size)
+                newline_count += buffer.count(b'\n')
+                file_size -= buffer_size
+
+            file.seek(0, os.SEEK_SET)
+            lines = file.read().splitlines()[-n:]
+            return lines
+    
     def show_home_page(self):
         self.stackedWidget.setCurrentIndex(0)
 
