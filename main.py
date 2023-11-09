@@ -1,11 +1,11 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog,QTableWidgetItem,QHeaderView
 from PyQt5 import uic,QtGui
 from file_watcher_service import FileWatcherService
 from PyQt5.QtCore import pyqtSlot
 import logging
 import os
-
+from database_manager import DatabaseManager
 class MyApp(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -20,10 +20,14 @@ class MyApp(QMainWindow):
         self.logs_view.setReadOnly(True)
         self.file_watcher = None
         self.is_watching = False  # Flag to track the service state
+        self.is_history_loaded = False
         
         # Connect the Start and Stop buttons
         self.btn_start.clicked.connect(self.start_watching)
         self.btn_stop.clicked.connect(self.stop_watching)
+
+        self.database_manager = DatabaseManager("secware.db")
+        
         
 
     @pyqtSlot()
@@ -85,7 +89,18 @@ class MyApp(QMainWindow):
 
     def show_history_page(self):
         self.stackedWidget.setCurrentIndex(2)
+        if not self.is_history_loaded:
+            results = self.database_manager.fetch_data()
+            for row_data in results:
+                row_number = self.table_view.rowCount()
+                self.table_view.insertRow(row_number)
 
+                for col_number, value in enumerate(row_data):
+                    item = QTableWidgetItem(str(value))
+                    self.table_view.setItem(row_number, col_number, item)
+            self.is_history_loaded=True
+            self.table_view.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+        
     def show_logs_page(self):
         self.stackedWidget.setCurrentIndex(3)
 

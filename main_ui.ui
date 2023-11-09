@@ -396,7 +396,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -950,7 +950,7 @@ border-radius: 10px;</string>
                 </property>
                 <column>
                  <property name="text">
-                  <string>S.N.</string>
+                  <string>Hash</string>
                  </property>
                 </column>
                 <column>
@@ -960,7 +960,7 @@ border-radius: 10px;</string>
                 </column>
                 <column>
                  <property name="text">
-                  <string>Hash</string>
+                  <string>Date</string>
                  </property>
                 </column>
                 <column>
@@ -970,7 +970,7 @@ border-radius: 10px;</string>
                 </column>
                 <column>
                  <property name="text">
-                  <string>Date</string>
+                  <string>Class</string>
                  </property>
                 </column>
                </widget>
