@@ -42,6 +42,7 @@ class FileWatcher(FileSystemEventHandler):
         arguments = f"-M intel -D {file_path}"
         assembly_code = subprocess.check_output([objdump_path, *arguments.split()], text=True)
         self.extract_features(assembly_code)
+        assembly_code = None
 
     def is_pe_executable(self, file_path):
         try:

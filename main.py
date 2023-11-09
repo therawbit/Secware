@@ -59,6 +59,7 @@ class MyApp(QMainWindow):
         log_lines = self.tail(100)
         for line in log_lines:
             self.logs_view.append(line.decode())
+        log_lines = None
 
     def tail(self,n):
         with open('service.log', 'rb') as file:
