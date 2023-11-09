@@ -1,13 +1,12 @@
 import os
 import logging
-from win10toast import ToastNotifier
 import subprocess
 import tempfile
 import pandas as pd
 from watchdog.events import FileSystemEventHandler
 import tempfile
 from collections import deque
-
+from plyer import notification
 
 
 class FileWatcher(FileSystemEventHandler):
@@ -15,13 +14,14 @@ class FileWatcher(FileSystemEventHandler):
         self.app = app
         self.file_queue = deque()
         self.processing = False
-        self.toaster = ToastNotifier()
+        
 
     def on_created(self, event):
         if not event.src_path.startswith(
             tempfile.gettempdir()
         ) and self.is_pe_executable(event.src_path):
             logging.info(f"New file: {event.src_path}")
+            self.show_notification(event.src_path)
             self.file_queue.append(event.src_path)
             self.process_queue()
 
@@ -34,8 +34,11 @@ class FileWatcher(FileSystemEventHandler):
     def show_notification(self, file_path):
         notification_title = "New .exe File Detected"
         notification_message = f"New .exe file detected: {os.path.basename(file_path)}. Please do not run it until we verify its safety"
-        toaster = ToastNotifier()
-        toaster.show_toast(notification_title, notification_message)
+        notification.notify(
+            title=notification_title,
+            message=notification_message,
+            timeout=2
+        )
 
     def invoke_external_system_call(self, file_path):
         objdump_path = "objdump.exe"
