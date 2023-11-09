@@ -25,6 +25,7 @@ class MyApp(QMainWindow):
         # Connect the Start and Stop buttons
         self.btn_start.clicked.connect(self.start_watching)
         self.btn_stop.clicked.connect(self.stop_watching)
+        self.btn_load_history.clicked.connect(self.load_history)
 
         self.database_manager = DatabaseManager("secware.db")
         
@@ -90,20 +91,22 @@ class MyApp(QMainWindow):
     def show_history_page(self):
         self.stackedWidget.setCurrentIndex(2)
         if not self.is_history_loaded:
-            results = self.database_manager.fetch_data()
-            for row_data in results:
-                row_number = self.table_view.rowCount()
-                self.table_view.insertRow(row_number)
+            self.load_history()
 
-                for col_number, value in enumerate(row_data):
-                    item = QTableWidgetItem(str(value))
-                    self.table_view.setItem(row_number, col_number, item)
-            self.is_history_loaded=True
-            header = self.table_view.horizontalHeader()
-            header.setSectionResizeMode(QHeaderView.ResizeToContents)
-            header.setSectionResizeMode(1, QHeaderView.Stretch)
+    def load_history(self):
+        self.table_view.setRowCount(0)
+        results = self.database_manager.fetch_data()
+        for row_data in results:
+            row_number = self.table_view.rowCount()
+            self.table_view.insertRow(row_number)
+            for col_number, value in enumerate(row_data):
+                item = QTableWidgetItem(str(value))
+                self.table_view.setItem(row_number, col_number, item)
+        self.is_history_loaded=True
+        header = self.table_view.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.Stretch) 
 
-        
     def show_logs_page(self):
         self.stackedWidget.setCurrentIndex(3)
 

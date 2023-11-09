@@ -396,7 +396,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -421,6 +421,18 @@ color:#38aecc;
               </font>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QLabel" name="label_2">
                 <property name="minimumSize">
@@ -658,6 +670,18 @@ border-radius: 10px;
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_10">
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QLabel" name="label_4">
                 <property name="maximumSize">
@@ -825,7 +849,7 @@ border-radius: 10px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap>icons/icons8-user-96.png</pixmap>
+                       <pixmap> icons/icons8-user-96.png</pixmap>
                       </property>
                      </widget>
                     </item>
