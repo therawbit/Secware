@@ -116,9 +116,6 @@
               <bold>true</bold>
              </font>
             </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
 color: rgb(255, 255, 255
@@ -170,9 +167,6 @@ color:#38aecc;
               <bold>true</bold>
              </font>
             </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
 color: rgb(255, 255, 255);
@@ -194,7 +188,7 @@ color:#38aecc;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btn_logs">
+           <widget class="QPushButton" name="pushButton_3">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -214,9 +208,6 @@ color:#38aecc;
               <weight>75</weight>
               <bold>true</bold>
              </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
@@ -239,7 +230,7 @@ color:#38aecc;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btn_about">
+           <widget class="QPushButton" name="pushButton_4">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -259,9 +250,6 @@ color:#38aecc;
               <weight>75</weight>
               <bold>true</bold>
              </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
@@ -408,7 +396,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>3</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -438,13 +426,13 @@ color:#38aecc;
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>60</height>
+                  <height>40</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>60</height>
+                  <width>120</width>
+                  <height>50</height>
                  </size>
                 </property>
                 <property name="baseSize">
@@ -456,7 +444,7 @@ color:#38aecc;
                 <property name="font">
                  <font>
                   <family>MS Shell Dlg 2</family>
-                  <pointsize>28</pointsize>
+                  <pointsize>24</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
@@ -468,7 +456,7 @@ color:#38aecc;
                  <string>Home</string>
                 </property>
                 <property name="alignment">
-                 <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                 </property>
                </widget>
               </item>
@@ -491,7 +479,7 @@ color:#38aecc;
                    </property>
                    <property name="font">
                     <font>
-                     <family>JetBrainsMono Nerd Font</family>
+                     <family>MS Shell Dlg 2</family>
                      <pointsize>12</pointsize>
                     </font>
                    </property>
@@ -629,9 +617,9 @@ border-radius: 10px;
                 </property>
                 <property name="font">
                  <font>
-                  <family>JetBrainsMono Nerd Font</family>
+                  <family>MS Shell Dlg 2</family>
                   <pointsize>18</pointsize>
-                  <italic>true</italic>
+                  <italic>false</italic>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -662,13 +650,13 @@ border-radius: 10px;
                <widget class="QLabel" name="label_4">
                 <property name="maximumSize">
                  <size>
-                  <width>120</width>
+                  <width>150</width>
                   <height>50</height>
                  </size>
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>16</pointsize>
+                  <pointsize>24</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
@@ -876,44 +864,105 @@ border-radius: 10px;
           </layout>
          </widget>
          <widget class="QWidget" name="history_page">
-          <widget class="QFrame" name="frame_14">
-           <property name="geometry">
-            <rect>
-             <x>50</x>
-             <y>60</y>
-             <width>381</width>
-             <height>231</height>
-            </rect>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-           <widget class="QLabel" name="label_3">
-            <property name="geometry">
-             <rect>
-              <x>160</x>
-              <y>90</y>
-              <width>91</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>19</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:#fff;
+          <layout class="QVBoxLayout" name="verticalLayout_15">
+           <item>
+            <widget class="QFrame" name="frame_14">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_16">
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:#fff;</string>
+                </property>
+                <property name="text">
+                 <string>History</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableWidget" name="tableWidget">
+                <property name="styleSheet">
+                 <string notr="true">background:#fff;
 </string>
-            </property>
-            <property name="text">
-             <string>History</string>
-            </property>
-           </widget>
-          </widget>
+                </property>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>S.N.</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>FileName</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Size</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Date</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="log_page">
           <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -928,15 +977,21 @@ border-radius: 10px;
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <item>
                <widget class="QLabel" name="label_8">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>50</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
-                  <width>80</width>
-                  <height>35</height>
+                  <width>120</width>
+                  <height>60</height>
                  </size>
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>16</pointsize>
+                  <pointsize>24</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
@@ -950,7 +1005,7 @@ border-radius: 10px;
                </widget>
               </item>
               <item>
-               <widget class="QTextEdit" name="logs_view">
+               <widget class="QTextEdit" name="textEdit">
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -958,17 +1013,22 @@ border-radius: 10px;
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(217, 217, 217);
-border-radius: 10px;</string>
+                 <string notr="true">background:grey;</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="btn_load_log">
+               <widget class="QPushButton" name="pushButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>100</width>
-                  <height>78</height>
+                  <height>50</height>
                  </size>
                 </property>
                 <property name="font">
