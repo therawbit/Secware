@@ -188,7 +188,7 @@ color:#38aecc;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="btn_logs">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -230,7 +230,7 @@ color:#38aecc;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="btn_about">
             <property name="minimumSize">
              <size>
               <width>160</width>
@@ -396,7 +396,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1005,7 +1005,7 @@ border-radius: 10px;
                </widget>
               </item>
               <item>
-               <widget class="QTextEdit" name="textEdit">
+               <widget class="QTextEdit" name="logs_view">
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -1018,7 +1018,7 @@ border-radius: 10px;
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="btn_load_log">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
