@@ -99,7 +99,10 @@ class MyApp(QMainWindow):
                     item = QTableWidgetItem(str(value))
                     self.table_view.setItem(row_number, col_number, item)
             self.is_history_loaded=True
-            self.table_view.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
+            header = self.table_view.horizontalHeader()
+            header.setSectionResizeMode(QHeaderView.ResizeToContents)
+            header.setSectionResizeMode(1, QHeaderView.Stretch)
+
         
     def show_logs_page(self):
         self.stackedWidget.setCurrentIndex(3)
