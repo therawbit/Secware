@@ -116,6 +116,9 @@
               <bold>true</bold>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
 color: rgb(255, 255, 255
@@ -167,6 +170,9 @@ color:#38aecc;
               <bold>true</bold>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
 color: rgb(255, 255, 255);
@@ -209,6 +215,9 @@ color:#38aecc;
               <bold>true</bold>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
 color: rgb(255, 255, 255);
@@ -250,6 +259,9 @@ color:#38aecc;
               <weight>75</weight>
               <bold>true</bold>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
             </property>
             <property name="styleSheet">
              <string notr="true">.QPushButton{
@@ -396,7 +408,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>3</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -849,7 +861,7 @@ border-radius: 10px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap> icons/icons8-user-96.png</pixmap>
+                       <pixmap>icons/icons8-user-96.png</pixmap>
                       </property>
                      </widget>
                     </item>
@@ -1176,6 +1188,9 @@ border-radius: 10px;</string>
                   <pointsize>12</pointsize>
                  </font>
                 </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgb(85, 170, 0);
 color:#fff;
@@ -1292,6 +1307,9 @@ color:#fff;</string>
                  <font>
                   <pointsize>12</pointsize>
                  </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>PointingHandCursor</cursorShape>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgb(85, 170, 0);
