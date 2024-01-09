@@ -7,6 +7,7 @@ from watchdog.events import FileSystemEventHandler
 import tempfile
 from collections import deque
 from plyer import notification
+import joblib
 
 
 class FileWatcher(FileSystemEventHandler):
@@ -27,9 +28,11 @@ class FileWatcher(FileSystemEventHandler):
 
     def process_queue(self):
         if not self.processing and self.file_queue:
-            self.processing = True
-            file_path = self.file_queue.popleft()
-            self.invoke_external_system_call(file_path)
+            while(self.file_queue):
+                self.processing = True
+                file_path = self.file_queue.popleft()
+                self.invoke_external_system_call(file_path)
+            self.processing = False
 
     def show_notification(self, file_path):
         notification_title = "New .exe File Detected"
@@ -41,11 +44,13 @@ class FileWatcher(FileSystemEventHandler):
         )
 
     def invoke_external_system_call(self, file_path):
-        objdump_path = "objdump.exe"
+        objdump_path = "objdump"
         arguments = f"-M intel -D {file_path}"
         assembly_code = subprocess.check_output([objdump_path, *arguments.split()], text=True)
-        self.extract_features(assembly_code)
+        features = self.extract_features(assembly_code)
         assembly_code = None
+        self.classify_sample(list(features.values()))
+
 
     def is_pe_executable(self, file_path):
         try:
@@ -55,49 +60,21 @@ class FileWatcher(FileSystemEventHandler):
         except Exception as e:
             return False
 
-
+    def classify_sample(self,features):
+        self.model = joblib.load('model_ranfo_v1.joblib')
+        prediction = self.model.predict([features])[0]
+        print(prediction)
 
     def extract_features(self, assembly_code):
-        fields = [
-            "jmp",
-            "mov",
-            "retf",
-            "push",
-            "pop",
-            "xor",
-            "retn",
-            "nop",
-            "sub",
-            "inc",
-            "dec",
-            "add",
-            "imul",
-            "xchg",
-            "or",
-            "shr",
-            "cmp",
-            "call",
-            "shl",
-            "ror",
-            "rol",
-            "jnb",
-            "jz",
-            "rtn",
-            "lea",
-            "movzx",
-            "edx",
-            "esi",
-            "eax",
-            "ebx",
-            "ecx",
-            "edi",
-            "ebp",
-            "esp",
-            "eip",
-        ]
+        fields = ['.text:', '.idata:', '.data:', '.bss:', '.rdata:', '.edata:', '.rsrc:',
+       '.tls:', '.reloc:', 'jmp', 'mov', 'retf', 'push', 'pop', 'xor', 'nop',
+       'sub', 'inc', 'dec', 'add', 'imul', 'xchg', 'or', 'shr', 'cmp', 'call',
+       'shl', 'ror', 'rol', 'jz', 'lea', 'movzx', 'edx', 'esi', 'eax', 'ebx',
+       'ecx', 'edi', 'ebp', 'esp','size']
 
         # Initialize a dictionary to store field counts and section line counts
         data = {field: 0 for field in fields}
+        data['size'] = len(assembly_code.encode('utf-8'))/(1024.0*1024.0)
         section_counts = {}
         section_name = None
         section_line_counts = {}  # Dictionary to store section line counts
@@ -124,8 +101,9 @@ class FileWatcher(FileSystemEventHandler):
         # Add section line counts to the dictionary
         data.update(section_counts)
         data.update(section_line_counts)
-
+        print(len(data))
+        features = {k: v for k, v in data.items() if k in fields}
+        print(len(features))
         # Create a DataFrame from the dictionary
-        df = pd.DataFrame([data])
+        return features
 
-        df.to_csv("test.csv", index=False)
