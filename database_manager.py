@@ -52,3 +52,9 @@ class DatabaseManager:
         query = "SELECT * FROM history ORDER BY date DESC"
         results = self.execute_query(query)
         return results
+
+    def check_if_exist(self,md5_sum):
+        query = "SELECT * FROM history where hash = ?"
+        parameter = [md5_sum]
+        result = self.execute_query(query,parameter)
+        return len(result)==1

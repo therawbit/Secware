@@ -8,13 +8,17 @@ import tempfile
 from collections import deque
 from plyer import notification
 import joblib
+import hashlib
+from database_manager import DatabaseManager
 
 
 class FileWatcher(FileSystemEventHandler):
     def __init__(self, app):
+        print("File watcher Created")
         self.app = app
         self.file_queue = deque()
         self.processing = False
+        self.database_manager = None
         
 
     def on_created(self, event):
@@ -23,8 +27,10 @@ class FileWatcher(FileSystemEventHandler):
         ) and self.is_pe_executable(event.src_path):
             logging.info(f"New file: {event.src_path}")
             self.show_notification(event.src_path)
-            self.file_queue.append(event.src_path)
-            self.process_queue()
+            sum = self.calculate_md5_sum(event.src_path)
+            if not self.is_classified(sum):
+                self.file_queue.append(event.src_path)
+                self.process_queue()
 
     def process_queue(self):
         if not self.processing and self.file_queue:
@@ -33,6 +39,7 @@ class FileWatcher(FileSystemEventHandler):
                 file_path = self.file_queue.popleft()
                 self.invoke_external_system_call(file_path)
             self.processing = False
+        
 
     def show_notification(self, file_path):
         notification_title = "New .exe File Detected"
@@ -101,9 +108,19 @@ class FileWatcher(FileSystemEventHandler):
         # Add section line counts to the dictionary
         data.update(section_counts)
         data.update(section_line_counts)
-        print(len(data))
         features = {k: v for k, v in data.items() if k in fields}
-        print(len(features))
         # Create a DataFrame from the dictionary
         return features
 
+    def is_classified(self,md5_sum):
+        self.database_manager = DatabaseManager("secware.db")
+        classifed = self.database_manager.check_if_exist(str(md5_sum))
+        self.database_manager = None
+        return classifed
+
+    def record_history(self,md5_sum):
+        pass
+
+    def calculate_md5_sum(self,file_path):
+        return hashlib.md5(open(file_path,"rb").read()).hexdigest()
+        
