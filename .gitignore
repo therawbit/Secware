@@ -3,4 +3,4 @@ service.log
 config.ini
 test.csv
 secware.db
-model_ranfo_v1.joblib
+*.joblib
