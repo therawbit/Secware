@@ -54,7 +54,10 @@ class DatabaseManager:
         return results
 
     def check_if_exist(self,md5_sum):
-        query = "SELECT * FROM history where hash = ?"
+        query = "SELECT class FROM history where hash = ?"
         parameter = [md5_sum]
         result = self.execute_query(query,parameter)
-        return len(result)==1
+        if len(result) == 1:
+            return result
+        else:
+            return None

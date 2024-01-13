@@ -19,6 +19,7 @@ class FileWatcher(FileSystemEventHandler):
         self.file_queue = deque()
         self.processing = False
         self.database_manager = None
+        self.current_file = {}
         
 
     def on_created(self, event):
@@ -26,11 +27,19 @@ class FileWatcher(FileSystemEventHandler):
             tempfile.gettempdir()
         ) and self.is_pe_executable(event.src_path):
             logging.info(f"New file: {event.src_path}")
-            self.show_notification(event.src_path)
+            
             sum = self.calculate_md5_sum(event.src_path)
-            if not self.is_classified(sum):
+            already_classified =self.is_classified(sum)
+            if not already_classified:
+                self.show_notification(event.src_path)
+                self.current_file['hash'] = sum
+                self.current_file['name'] = event.src_path.split('/')[-1]
+                print(self.current_file)
                 self.file_queue.append(event.src_path)
                 self.process_queue()
+            else:
+                self.show_classified_notification(event.src_path.split('/')[-1],already_classified)
+                print(f"{event.src_path} already classified as {already_classified}")
 
     def process_queue(self):
         if not self.processing and self.file_queue:
@@ -44,6 +53,15 @@ class FileWatcher(FileSystemEventHandler):
     def show_notification(self, file_path):
         notification_title = "New .exe File Detected"
         notification_message = f"New .exe file detected: {os.path.basename(file_path)}. Please do not run it until we verify its safety"
+        notification.notify(
+            title=notification_title,
+            message=notification_message,
+            timeout=2
+        )
+    
+    def show_classified_notification(self,file_path,classified):
+        notification_title = f" {classified} Identified"
+        notification_message = f"{file_path}"
         notification.notify(
             title=notification_title,
             message=notification_message,
@@ -70,6 +88,10 @@ class FileWatcher(FileSystemEventHandler):
     def classify_sample(self,features):
         self.model = joblib.load('model_ranfo_v1.joblib')
         prediction = self.model.predict([features])[0]
+        self.current_file['class'] = prediction
+        self.record_history(self.current_file)
+        self.show_classified_notification(self.current_file['name'],prediction)
+        self.current_file = None
         print(prediction)
 
     def extract_features(self, assembly_code):
@@ -81,7 +103,9 @@ class FileWatcher(FileSystemEventHandler):
 
         # Initialize a dictionary to store field counts and section line counts
         data = {field: 0 for field in fields}
-        data['size'] = len(assembly_code.encode('utf-8'))/(1024.0*1024.0)
+        size = len(assembly_code.encode('utf-8'))/(1024.0*1024.0)
+        data['size'] = size
+        self.current_file['size'] = size
         section_counts = {}
         section_name = None
         section_line_counts = {}  # Dictionary to store section line counts
@@ -116,10 +140,12 @@ class FileWatcher(FileSystemEventHandler):
         self.database_manager = DatabaseManager("secware.db")
         classifed = self.database_manager.check_if_exist(str(md5_sum))
         self.database_manager = None
-        return classifed
+        return classifed[0][0]
 
-    def record_history(self,md5_sum):
-        pass
+    def record_history(self,data):
+        self.database_manager = DatabaseManager("secware.db")
+        self.database_manager.insert_data(data)
+        self.database_manager =  None
 
     def calculate_md5_sum(self,file_path):
         return hashlib.md5(open(file_path,"rb").read()).hexdigest()
