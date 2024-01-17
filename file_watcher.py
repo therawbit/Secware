@@ -86,7 +86,7 @@ class FileWatcher(FileSystemEventHandler):
             return False
 
     def classify_sample(self,features):
-        self.model = joblib.load('model_ranfo_v1.joblib')
+        self.model = joblib.load('model_ranfo_v3.joblib')
         prediction = self.model.predict([features])[0]
         self.current_file['class'] = prediction
         self.record_history(self.current_file)
@@ -140,8 +140,11 @@ class FileWatcher(FileSystemEventHandler):
         self.database_manager = DatabaseManager("secware.db")
         classifed = self.database_manager.check_if_exist(str(md5_sum))
         self.database_manager = None
-        return classifed[0][0]
-
+        if classifed:
+            return classifed[0][0]
+        else:
+            return None
+        
     def record_history(self,data):
         self.database_manager = DatabaseManager("secware.db")
         self.database_manager.insert_data(data)
