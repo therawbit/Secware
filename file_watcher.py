@@ -70,8 +70,9 @@ class FileWatcher(FileSystemEventHandler):
 
     def invoke_external_system_call(self, file_path):
         objdump_path = "objdump"
-        arguments = f"-M intel -D {file_path}"
-        assembly_code = subprocess.check_output([objdump_path, *arguments.split()], text=True)
+        arguments = f'-M intel -D'
+        command = [objdump_path,*arguments.split(),file_path]
+        assembly_code = subprocess.check_output(command,text=True)
         features = self.extract_features(assembly_code)
         assembly_code = None
         self.classify_sample(list(features.values()))
@@ -86,7 +87,7 @@ class FileWatcher(FileSystemEventHandler):
             return False
 
     def classify_sample(self,features):
-        self.model = joblib.load('model_ranfo_v3.joblib')
+        self.model = joblib.load('model_ranfo_v1.joblib')
         prediction = self.model.predict([features])[0]
         self.current_file['class'] = prediction
         self.record_history(self.current_file)
