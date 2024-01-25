@@ -408,7 +408,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -558,10 +558,10 @@ border-radius: 2px;
                  </size>
                 </property>
                 <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
+                 <enum>QFrame::NoFrame</enum>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
+                 <enum>QFrame::Plain</enum>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
@@ -688,10 +688,10 @@ border-width: 1px;
               <string notr="true">background:rgb(248, 248, 248);</string>
              </property>
              <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+              <enum>QFrame::Plain</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_10">
               <property name="leftMargin">
@@ -783,7 +783,7 @@ border-width: 1px;
               <item>
                <widget class="QFrame" name="frame_5">
                 <property name="styleSheet">
-                 <string notr="true">background:rgb(229, 229, 229);</string>
+                 <string notr="true"/>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::NoFrame</enum>
@@ -916,7 +916,7 @@ border-width: 1px;
                        <string notr="true">background:rgb(229, 229, 229);</string>
                       </property>
                       <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
+                       <enum>QFrame::NoFrame</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
@@ -966,10 +966,10 @@ border-width: 1px;
               <item>
                <widget class="QFrame" name="frame_6">
                 <property name="styleSheet">
-                 <string notr="true">background:rgb(229, 229, 229);</string>
+                 <string notr="true"/>
                 </property>
                 <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
+                 <enum>QFrame::NoFrame</enum>
                 </property>
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
@@ -1146,13 +1146,13 @@ border-width: 1px;
            <item>
             <widget class="QFrame" name="frame_14">
              <property name="styleSheet">
-              <string notr="true">background:rgb(233,233,233);</string>
+              <string notr="true"/>
              </property>
              <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+              <enum>QFrame::Plain</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_16">
               <property name="leftMargin">
@@ -1205,8 +1205,14 @@ border-width: 1px;
                  <string notr="true">background:#fff;
 border-radius: 2px;</string>
                 </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
                 <attribute name="horizontalHeaderDefaultSectionSize">
-                 <number>100</number>
+                 <number>106</number>
                 </attribute>
                 <column>
                  <property name="text">
@@ -1293,10 +1299,10 @@ border-radius:4px;</string>
            <item>
             <widget class="QFrame" name="frame_10">
              <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+              <enum>QFrame::NoFrame</enum>
              </property>
              <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
+              <enum>QFrame::Plain</enum>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_8">
               <property name="leftMargin">
