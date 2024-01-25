@@ -852,10 +852,7 @@ border-width: 1px;
                          <property name="font">
                           <font>
                            <family>Poppins SemiBold</family>
-                           <pointsize>14</pointsize>
-                           <weight>75</weight>
-                           <bold>true</bold>
-                           <strikeout>false</strikeout>
+                           <pointsize>14</pointsize>                           
                           </font>
                          </property>
                          <property name="styleSheet">
