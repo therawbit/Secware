@@ -1003,10 +1003,10 @@ border-width: 1px;
                        <string notr="true">background:rgb(229, 229, 229);</string>
                       </property>
                       <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
+                       <enum>QFrame::NoFrame</enum>
                       </property>
                       <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
+                       <enum>QFrame::Plain</enum>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_11">
                        <item>
@@ -1077,10 +1077,10 @@ border-width: 1px;
                        <string notr="true">background:rgb(229, 229, 229);</string>
                       </property>
                       <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
+                       <enum>QFrame::NoFrame</enum>
                       </property>
                       <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
+                       <enum>QFrame::Plain</enum>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_14">
                        <item>
