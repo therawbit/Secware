@@ -408,7 +408,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -894,10 +894,10 @@ border-width: 1px;
                     <string notr="true">background:rgb(248, 248, 248);</string>
                    </property>
                    <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
+                    <enum>QFrame::NoFrame</enum>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
+                    <enum>QFrame::Plain</enum>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_8">
                     <item>
@@ -981,10 +981,10 @@ border-width: 1px;
                     <string notr="true">background:rgb(248, 248, 248);</string>
                    </property>
                    <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
+                    <enum>QFrame::NoFrame</enum>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
+                    <enum>QFrame::Plain</enum>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_6">
                     <item>
@@ -1055,10 +1055,10 @@ border-width: 1px;
                     <string notr="true">background:rgb(248, 248, 248);</string>
                    </property>
                    <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
+                    <enum>QFrame::NoFrame</enum>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
+                    <enum>QFrame::Plain</enum>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_9">
                     <item>
