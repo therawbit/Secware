@@ -26,7 +26,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(56, 56, 56);</string>
+   <string notr="true">background-color:rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -110,7 +110,7 @@
             </property>
             <property name="font">
              <font>
-              <family>MS Shell Dlg 2</family>
+              <family>Poppins</family>
               <pointsize>13</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -164,7 +164,7 @@ color:#38aecc;
             </property>
             <property name="font">
              <font>
-              <family>MS Shell Dlg 2</family>
+              <family>Poppins</family>
               <pointsize>13</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -209,7 +209,7 @@ color:#38aecc;
             </property>
             <property name="font">
              <font>
-              <family>MS Shell Dlg 2</family>
+              <family>Poppins</family>
               <pointsize>13</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -254,7 +254,7 @@ color:#38aecc;
             </property>
             <property name="font">
              <font>
-              <family>MS Shell Dlg 2</family>
+              <family>Poppins</family>
               <pointsize>13</pointsize>
               <weight>75</weight>
               <bold>true</bold>
@@ -408,7 +408,7 @@ color:#38aecc;
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="home_page">
           <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -474,7 +474,7 @@ color:#38aecc;
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(255, 255, 255);</string>
+                 <string notr="true">color: rgb(0, 0, 0);</string>
                 </property>
                 <property name="text">
                  <string>Home</string>
@@ -525,20 +525,21 @@ color:#38aecc;
                    </property>
                    <property name="font">
                     <font>
-                     <family>MS Shell Dlg 2</family>
+                     <family>Poppins Medium</family>
                      <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QPushButton{color: rgb(44, 30, 124);
-background-color: rgb(55, 174, 204);
-border-radius: 10px;
-}</string>
+                    <string notr="true">QPushButton{color: rgb(255, 248, 248);
+background-color: rgb(44, 30, 124);
+border-radius: 2px;
+}
+</string>
                    </property>
                    <property name="text">
                     <string>Select</string>
@@ -573,20 +574,21 @@ border-radius: 10px;
                    </property>
                    <property name="font">
                     <font>
-                     <family>MS Shell Dlg 2</family>
+                     <family>Poppins Medium</family>
                      <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
+                     <kerning>false</kerning>
                     </font>
                    </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QPushButton{color: rgb(44, 30, 124);
+                    <string notr="true">QPushButton{
 	color: rgb(255, 255, 255);
-background-color: rgb(85, 170, 0);
-border-radius: 10px;
+background-color: rgb(44, 30, 124);
+border-radius: 2px;
 }</string>
                    </property>
                    <property name="text">
@@ -607,20 +609,27 @@ border-radius: 10px;
                    </property>
                    <property name="font">
                     <font>
-                     <family>MS Shell Dlg 2</family>
+                     <family>Poppins Medium</family>
                      <pointsize>12</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
+                     <weight>50</weight>
+                     <bold>false</bold>
+                     <stylestrategy>PreferDefault</stylestrategy>
+                     <kerning>false</kerning>
                     </font>
                    </property>
                    <property name="cursor">
                     <cursorShape>PointingHandCursor</cursorShape>
                    </property>
+                   <property name="autoFillBackground">
+                    <bool>false</bool>
+                   </property>
                    <property name="styleSheet">
-                    <string notr="true">QPushButton{color: rgb(44, 30, 124);
-background-color: rgb(185, 0, 0);
-	color: rgb(255, 255, 255);
-border-radius: 10px;
+                    <string notr="true">QPushButton{
+background-color: rgb(255, 248, 248);
+color: rgb(44, 30, 124);
+border-radius: 2px;
+border-style: solid;
+border-width: 1px;
 }</string>
                    </property>
                    <property name="text">
@@ -641,13 +650,13 @@ border-radius: 10px;
                 </property>
                 <property name="font">
                  <font>
-                  <family>MS Shell Dlg 2</family>
+                  <family>Poppins</family>
                   <pointsize>18</pointsize>
                   <italic>false</italic>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(85, 255, 255);</string>
+                 <string notr="true">color:rgb(255, 46, 49);</string>
                 </property>
                 <property name="text">
                  <string>Stopped</string>
@@ -675,6 +684,9 @@ border-radius: 10px;
            </property>
            <item>
             <widget class="QFrame" name="frame_4">
+             <property name="styleSheet">
+              <string notr="true">background:rgb(248, 248, 248);</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -704,13 +716,14 @@ border-radius: 10px;
                 </property>
                 <property name="font">
                  <font>
+                  <family>Poppins</family>
                   <pointsize>24</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color:#fff;</string>
+                 <string notr="true">color:rgb(8, 8, 8);</string>
                 </property>
                 <property name="text">
                  <string>Secware</string>
@@ -727,11 +740,13 @@ border-radius: 10px;
                 </property>
                 <property name="font">
                  <font>
-                  <pointsize>12</pointsize>
+                  <family>Poppins</family>
+                  <pointsize>11</pointsize>
+                  <stylestrategy>PreferDefault</stylestrategy>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color:#fff;</string>
+                 <string notr="true">color:rgb(18, 18, 18);</string>
                 </property>
                 <property name="text">
                  <string>Secware is a cutting-edge desktop application designed to enhance your computer's security by harnessing the power of machine learning. This innovative solution, built using Python, is dedicated to detecting and responding to malicious files that may find their way onto your PC.</string>
@@ -751,13 +766,14 @@ border-radius: 10px;
                 </property>
                 <property name="font">
                  <font>
+                  <family>Poppins</family>
                   <pointsize>16</pointsize>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color:#fff;</string>
+                 <string notr="true">color:rgb(8, 8, 8);</string>
                 </property>
                 <property name="text">
                  <string>Developers</string>
@@ -767,25 +783,34 @@ border-radius: 10px;
               <item>
                <widget class="QFrame" name="frame_5">
                 <property name="styleSheet">
-                 <string notr="true">background:#fff000;</string>
+                 <string notr="true">background:rgb(229, 229, 229);</string>
                 </property>
                 <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
+                 <enum>QFrame::NoFrame</enum>
                 </property>
                 <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>0</number>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
                   <widget class="QFrame" name="frame_7">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
                    <property name="styleSheet">
-                    <string notr="true">background:red;</string>
+                    <string notr="true">background:rgb(248, 248, 248);</string>
                    </property>
                    <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
+                    <enum>QFrame::NoFrame</enum>
                    </property>
                    <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
+                    <enum>QFrame::Plain</enum>
+                   </property>
+                   <property name="lineWidth">
+                    <number>0</number>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_7">
                     <item>
@@ -800,22 +825,41 @@ border-radius: 10px;
                     </item>
                     <item>
                      <widget class="QFrame" name="frame_12">
+                      <property name="styleSheet">
+                       <string notr="true">background:rgb(229, 229, 229);</string>
+                      </property>
                       <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
+                       <enum>QFrame::NoFrame</enum>
                       </property>
                       <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
+                       <enum>QFrame::Plain</enum>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <property name="midLineWidth">
+                       <number>0</number>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_12">
+                       <property name="sizeConstraint">
+                        <enum>QLayout::SetDefaultConstraint</enum>
+                       </property>
+                       <property name="leftMargin">
+                        <number>9</number>
+                       </property>
                        <item>
                         <widget class="QLabel" name="label_12">
                          <property name="font">
                           <font>
+                           <family>Poppins SemiBold</family>
                            <pointsize>14</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                           <strikeout>false</strikeout>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color: rgb(44, 30, 124);</string>
                          </property>
                          <property name="text">
                           <string>Ashish</string>
@@ -826,11 +870,12 @@ border-radius: 10px;
                         <widget class="QLabel" name="label_13">
                          <property name="font">
                           <font>
+                           <family>Poppins</family>
                            <pointsize>12</pointsize>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
                           <string>TextLabel</string>
@@ -846,7 +891,7 @@ border-radius: 10px;
                  <item>
                   <widget class="QFrame" name="frame_8">
                    <property name="styleSheet">
-                    <string notr="true">background:red;</string>
+                    <string notr="true">background:rgb(248, 248, 248);</string>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
@@ -867,6 +912,9 @@ border-radius: 10px;
                     </item>
                     <item>
                      <widget class="QFrame" name="frame_15">
+                      <property name="styleSheet">
+                       <string notr="true">background:rgb(229, 229, 229);</string>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
@@ -878,11 +926,12 @@ border-radius: 10px;
                         <widget class="QLabel" name="label_15">
                          <property name="font">
                           <font>
+                           <family>Poppins SemiBold</family>
                            <pointsize>14</pointsize>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color: rgb(44, 30, 124);</string>
                          </property>
                          <property name="text">
                           <string>Dikshyant</string>
@@ -893,11 +942,12 @@ border-radius: 10px;
                         <widget class="QLabel" name="label_16">
                          <property name="font">
                           <font>
+                           <family>Poppins</family>
                            <pointsize>12</pointsize>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
                           <string>TextLabel</string>
@@ -916,7 +966,7 @@ border-radius: 10px;
               <item>
                <widget class="QFrame" name="frame_6">
                 <property name="styleSheet">
-                 <string notr="true">background:#fff000;</string>
+                 <string notr="true">background:rgb(229, 229, 229);</string>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -928,7 +978,7 @@ border-radius: 10px;
                  <item>
                   <widget class="QFrame" name="frame_9">
                    <property name="styleSheet">
-                    <string notr="true">background:red;</string>
+                    <string notr="true">background:rgb(248, 248, 248);</string>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
@@ -949,6 +999,9 @@ border-radius: 10px;
                     </item>
                     <item>
                      <widget class="QFrame" name="frame_11">
+                      <property name="styleSheet">
+                       <string notr="true">background:rgb(229, 229, 229);</string>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
@@ -960,11 +1013,12 @@ border-radius: 10px;
                         <widget class="QLabel" name="label_14">
                          <property name="font">
                           <font>
+                           <family>Poppins SemiBold</family>
                            <pointsize>14</pointsize>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color: rgb(44, 30, 124);</string>
                          </property>
                          <property name="text">
                           <string>Sabigya</string>
@@ -975,11 +1029,12 @@ border-radius: 10px;
                         <widget class="QLabel" name="label_18">
                          <property name="font">
                           <font>
+                           <family>Poppins</family>
                            <pointsize>12</pointsize>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
                           <string>TextLabel</string>
@@ -997,7 +1052,7 @@ border-radius: 10px;
                  <item>
                   <widget class="QFrame" name="frame_13">
                    <property name="styleSheet">
-                    <string notr="true">background:red;</string>
+                    <string notr="true">background:rgb(248, 248, 248);</string>
                    </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
@@ -1018,6 +1073,9 @@ border-radius: 10px;
                     </item>
                     <item>
                      <widget class="QFrame" name="frame_16">
+                      <property name="styleSheet">
+                       <string notr="true">background:rgb(229, 229, 229);</string>
+                      </property>
                       <property name="frameShape">
                        <enum>QFrame::StyledPanel</enum>
                       </property>
@@ -1029,11 +1087,12 @@ border-radius: 10px;
                         <widget class="QLabel" name="label_17">
                          <property name="font">
                           <font>
+                           <family>Poppins SemiBold</family>
                            <pointsize>14</pointsize>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color: rgb(44, 30, 124);</string>
                          </property>
                          <property name="text">
                           <string>Sudarshan</string>
@@ -1044,11 +1103,12 @@ border-radius: 10px;
                         <widget class="QLabel" name="label_19">
                          <property name="font">
                           <font>
+                           <family>Poppins</family>
                            <pointsize>12</pointsize>
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color:#fff;</string>
+                          <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
                           <string>TextLabel</string>
@@ -1085,6 +1145,9 @@ border-radius: 10px;
            </property>
            <item>
             <widget class="QFrame" name="frame_14">
+             <property name="styleSheet">
+              <string notr="true">background:rgb(233,233,233);</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -1126,7 +1189,7 @@ border-radius: 10px;
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color:#fff;</string>
+                 <string notr="true">color:rgb(0,0,0);</string>
                 </property>
                 <property name="text">
                  <string>History</string>
@@ -1140,8 +1203,11 @@ border-radius: 10px;
                <widget class="QTableWidget" name="table_view">
                 <property name="styleSheet">
                  <string notr="true">background:#fff;
-border-radius: 10px;</string>
+border-radius: 2px;</string>
                 </property>
+                <attribute name="horizontalHeaderDefaultSectionSize">
+                 <number>100</number>
+                </attribute>
                 <column>
                  <property name="text">
                   <string>Hash</string>
@@ -1267,7 +1333,7 @@ border-radius:4px;</string>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color:#fff;</string>
+                 <string notr="true">color:rgb(0,0,0);</string>
                 </property>
                 <property name="text">
                  <string>Logs</string>
@@ -1283,8 +1349,8 @@ border-radius:4px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background:#8080A0;
-border-radius: 10px;
+                 <string notr="true">background:rgb(197,197,197);
+border-radius: 2px;
 color:#fff;</string>
                 </property>
                </widget>
