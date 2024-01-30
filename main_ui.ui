@@ -990,7 +990,7 @@ border-width: 1px;
                        <string/>
                       </property>
                       <property name="pixmap">
-                       <pixmap>icons/icons8-avatar-96.png</pixmap>
+                       <pixmap>icons/icons8-avatar-female-96.png</pixmap>
                       </property>
                      </widget>
                     </item>
