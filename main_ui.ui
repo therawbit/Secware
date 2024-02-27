@@ -875,7 +875,7 @@ border-width: 1px;
                           <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
-                          <string>TextLabel</string>
+                          <string>Secware</string>
                          </property>
                         </widget>
                        </item>
@@ -947,7 +947,7 @@ border-width: 1px;
                           <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
-                          <string>TextLabel</string>
+                          <string>Secware</string>
                          </property>
                         </widget>
                        </item>
@@ -1034,7 +1034,7 @@ border-width: 1px;
                           <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
-                          <string>TextLabel</string>
+                          <string>Secware</string>
                          </property>
                         </widget>
                        </item>
@@ -1108,7 +1108,7 @@ border-width: 1px;
                           <string notr="true">color:rgb(18, 18, 18);</string>
                          </property>
                          <property name="text">
-                          <string>TextLabel</string>
+                          <string>Secware</string>
                          </property>
                         </widget>
                        </item>
@@ -1354,7 +1354,7 @@ border-radius:4px;</string>
                 <property name="styleSheet">
                  <string notr="true">background:rgb(197,197,197);
 border-radius: 2px;
-color:#fff;</string>
+color:#000;</string>
                 </property>
                </widget>
               </item>
