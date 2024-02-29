@@ -87,12 +87,12 @@ class FileWatcher(FileSystemEventHandler):
             return False
 
     def classify_sample(self,features):
-        self.model = joblib.load('model_ranfo_v1.joblib')
+        self.model = joblib.load('model_ranfo.joblib')
         prediction = self.model.predict([features])[0]
         self.current_file['class'] = prediction
         self.record_history(self.current_file)
         self.show_classified_notification(self.current_file['name'],prediction)
-        self.current_file = None
+        self.current_file = {}
         print(prediction)
 
     def extract_features(self, assembly_code):
